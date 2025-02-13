@@ -11,6 +11,13 @@ export async function createUser(name: string, email: string) {
   return user;
 }
 
+export async function getAllUsers(){
+  await dbConnect();
+
+  const users = await User.find();
+  return users
+}
+
 
 
 
