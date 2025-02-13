@@ -1,4 +1,4 @@
-import {Schema, model, Document} from "mongoose";
+import {Schema, model, Document, models } from "mongoose";
 
 // define the user interface for typescript
 interface User {
@@ -12,5 +12,5 @@ const userSchema = new Schema<User>({
     email: String
 })
 
-const User = model<User>('User', userSchema);
+const User = models?.User || model<User>('User', userSchema);
 export default User
