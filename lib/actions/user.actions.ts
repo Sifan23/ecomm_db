@@ -42,6 +42,16 @@ export async function findUserByName(name:string){
   return user;
 }
 
+// function to update user email
+export async function updateUserEmail(userId: string, newEmail:string){
+   // make sure we're connected to the database
+  // before doing anything!
+  await dbConnect();
+
+  const user = User.updateOne({_id: userId}, {email: newEmail})
+  return user
+}
+
 
 
 
