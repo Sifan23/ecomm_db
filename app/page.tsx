@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createUser, getAllUsers, createMultipleUsers } from "@/lib/actions/user.actions"
+import { createUser, getAllUsers, createMultipleUsers, findUserByName } from "@/lib/actions/user.actions"
 import { createPost, getAllPosts } from "@/lib/actions/post.actions"
 
 
@@ -15,6 +15,11 @@ export default async function Home() {
   const multipleUsers = await getAllUsers();
   console.log(multipleUsers)
 
+  // find a user by name
+  const user =await findUserByName("james")
+  console.log(user)
+
+  // create a new post
   await createPost("My first post", "This is my first post", "Alice", "alice@gmail.com");
   const posts = await getAllPosts();
   console.log(posts)
