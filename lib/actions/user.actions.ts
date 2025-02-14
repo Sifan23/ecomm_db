@@ -23,6 +23,7 @@ export async function createMultipleUsers(users: UserArray){
   return Users
 }
 
+//function to getAllUsers
 export async function getAllUsers(){
   await dbConnect();
 
@@ -30,6 +31,16 @@ export async function getAllUsers(){
   return users
 }
 
+// function to find user by name
+export async function findUserByName(name:string){
+  // make sure we're connected to the database
+  // before doing anything!
+  await dbConnect();
+
+  // find user by name
+  const user = await User.find({name});
+  return user;
+}
 
 
 
